@@ -1,8 +1,21 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    cache = {}
+    result = []
+
+    #mark all items based on how many times we see them
+    for i in arrays:
+        for j in i:
+            #first time found
+            if j not in cache:
+                cache[j] = 1
+            #subsequent findings, increase value to be greater than 1
+            else:
+                cache[j] += 1
+    
+    #build result list
+    for key, value in cache.items():
+        if value > 1:
+            result.append(key)
 
     return result
 
